@@ -43,14 +43,7 @@ int main(int argc, char **argv)
 		cmd = get_cmd(str, " \n ");
 		arg = cmd[1];
 		f = get_func(cmd[0]);
-		if (!f)
-		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line, cmd[0]);
-			free(str);
-			fclose(stream);
-			free_list(&top);
-			exit(EXIT_FAILURE);
-		}
+		check_func(f, line, cmd, str, stream, top);
 		f(&top, line);
 		free_args(cmd);
 		ln = getline(&str, &nb, stream);

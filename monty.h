@@ -43,6 +43,8 @@ typedef struct instruction_s
 extern char *arg;
 
 void (*get_func(char *cmd))(stack_t **, unsigned int);
+void check_func(void (*f)(stack_t **, unsigned int), unsigned int line,
+		char **cmd, char *str, FILE *stream, stack_t *top);
 char **get_cmd(char *, char *);
 int are_digits(char *str);
 
