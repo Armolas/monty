@@ -14,7 +14,7 @@ char **get_cmd(char *linebuf, char *delim)
 
 	args = malloc(sizeof(char *) * 2);
 	arg = strtok(bufcpy, delim);
-	while (arg)
+	while (arg && (i < 2))
 	{
 		args[i] = strdup(arg);
 		arg = strtok(NULL, delim);
