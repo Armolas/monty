@@ -10,6 +10,8 @@
 #include <fcntl.h>
 #include <string.h>
 
+extern char *arg;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -21,9 +23,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -36,15 +38,27 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern char *arg;
-
-void (*get_func(char *cmd))(stack_t **, unsigned int);
+/**
+ * check_func - checks if a function is valid
+ * @f: function to check
+ * @line: line number in bytecode file
+ * @cmd: array of arguments in line <line>
+ * @str: line read in line <line>
+ * @stream: file descriptor
+ * @top: top of the stack
+ *
+ * Return: Nothing.
+ */
 void check_func(void (*f)(stack_t **, unsigned int), unsigned int line,
 		char **cmd, char *str, FILE *stream, stack_t *top);
+void (*get_func(char *cmd))(stack_t **, unsigned int);
+void check_argc(int arg_count);
+void check_stream(FILE *stream, char *monty);
+
 char **get_cmd(char *, char *);
 int are_digits(char *str);
 
@@ -55,6 +69,10 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void div_2(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 
 void free_list(stack_t **);
 void free_args(char **);
