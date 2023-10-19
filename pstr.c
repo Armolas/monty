@@ -17,7 +17,7 @@ void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	{
 		if (temp->n < 1 || temp->n > 127)
 		{
-			return;
+			break;
 		}
 		write(1, &temp->n, 1);
 		temp = temp->next;
