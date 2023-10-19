@@ -13,7 +13,7 @@ void add(stack_t **stack, unsigned int line_number)
 	stack_t *add_node = malloc(sizeof(stack_t));
 	size_t i = 0;
 
-	if ((*stack)->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		dprintf(2, "L%u: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
