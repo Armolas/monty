@@ -40,7 +40,7 @@ void div_2(stack_t **stack, unsigned int line_number)
  * @stack: points to the top of the stack
  * @line_number: the line number in bytecode file
  *
- * Return: NOthing.
+ * Return: Nothing.
  */
 
 void mul(stack_t **stack, unsigned int line_number)
