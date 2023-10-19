@@ -11,20 +11,21 @@
 
 void div_2(stack_t **stack, unsigned int line_number)
 {
-	stack_t *div_node = malloc(sizeof(stack_t));
+	stack_t *div_node;
 	size_t i = 0;
 
-	if ((*stack)->n == 0)
-	{
-		dprintf(2, "L%u: division by zero\n", line_number);
-		exit(EXIT_FAILURE);
-	}
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		dprintf(2, "L%u: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	if ((*stack)->n == 0)
+	{
+		dprintf(2, "L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
+	div_node = malloc(sizeof(stack_t));
 	div_node->n = (*stack)->next->n / (*stack)->n;
 	for (i = 0; i < 2; i++)
 		pop(stack, line_number);
@@ -74,20 +75,21 @@ void mul(stack_t **stack, unsigned int line_number)
 
 void mod(stack_t **stack, unsigned int line_number)
 {
-	stack_t *mod_node = malloc(sizeof(stack_t));
+	stack_t *mod_node;
 	size_t i = 0;
 
-	if ((*stack)->n == 0)
-	{
-		dprintf(2, "L%u: division by zero\n", line_number);
-		exit(EXIT_FAILURE);
-	}
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		dprintf(2, "L%u: can't mod, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	if ((*stack)->n == 0)
+	{
+		dprintf(2, "L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
+	mod_node = malloc(sizeof(stack_t));
 	mod_node->n = (*stack)->next->n % (*stack)->n;
 	for (i = 0; i < 2; i++)
 		pop(stack, line_number);
