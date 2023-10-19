@@ -13,7 +13,7 @@ int are_digits(char *str)
 		return (-1);
 	while (str[i])
 	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
+		if (!(str[i] >= '0' && str[i] <= '9') && str[0] != '-')
 			return (1);
 		i++;
 	}
