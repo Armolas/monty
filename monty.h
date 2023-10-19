@@ -61,7 +61,7 @@ void check_stream(FILE *stream, char *monty);
 
 char **get_cmd(char *, char *);
 int are_digits(char *str);
-
+void pstr(stack_t **stack, unsigned int line_number);
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **stack, unsigned int line_number);
