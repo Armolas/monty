@@ -54,5 +54,6 @@ void swap(stack_t **stack, unsigned int line_number);
 
 void free_list(stack_t **);
 void free_args(char **);
+int is_empty(char *);
 
 #endif

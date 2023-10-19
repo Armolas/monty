@@ -33,7 +33,14 @@ int main(int argc, char **argv)
 	ui = ln;
 	while (ui != -1)
 	{
-		cmd = get_cmd(str, " \n");
+		if (ln == 1 || is_empty(str) == 0)
+		{
+			ln = getline(&str, &nb, stream);
+			ui = ln;
+			line++;
+			continue;
+		}
+		cmd = get_cmd(str, " \n ");
 		arg = cmd[1];
 		f = get_func(cmd[0]);
 		if (!f)
