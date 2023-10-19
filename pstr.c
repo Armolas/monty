@@ -8,11 +8,15 @@ void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *temp = *stack;
 
+	if (!*stack)
+	{
+		printf("\n");
+		return;
+	}
 	while (temp)
 	{
 		if (temp->n < 1 || temp->n > 127)
 		{
-			printf("\n");
 			return;
 		}
 		write(1, &temp->n, 1);
