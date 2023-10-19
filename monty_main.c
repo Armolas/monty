@@ -17,11 +17,7 @@ int main(int argc, char **argv)
 	int ui;
 	void (*f)(stack_t **, unsigned int);
 
-	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+	check_argc(argc);
 	monty = argv[1];
 	stream = fopen(monty, "r");
 	if (!stream)
@@ -50,8 +46,7 @@ int main(int argc, char **argv)
 		ui = ln;
 		line++;
 	}
-	free_list(&top);
-	free(str);
+	free_list(&top), free(str);
 	fclose(stream);
 	return (0);
 }
