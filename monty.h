@@ -43,4 +43,5 @@ char **get_cmd(char *, char *);
 void pint(stack_t **stack, unsigned int line_number);
 void free_args(char **);
 void pop(stack_t **stack, unsigned int line_number);
+void free_list(stack_t **);
 #endif

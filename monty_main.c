@@ -40,6 +40,9 @@ int main(int argc, char **argv)
 		if (!f)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line, cmd[0]);
+			free(str);
+			fclose(stream);
+			free_list(&top);
 			exit(EXIT_FAILURE);
 		}
 		f(&top, line);
@@ -47,5 +50,8 @@ int main(int argc, char **argv)
 		ln = getline(&str, &nb, stream);
 		ui = ln;
 	}
+	free_list(&top);
+	free(str);
+	fclose(stream);
 	return (0);
 }

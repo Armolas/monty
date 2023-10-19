@@ -20,7 +20,8 @@ char **get_cmd(char *linebuf, char *delim)
 		arg = strtok(NULL, delim);
 		i++;
 	}
-	args[i] = NULL;
+	if (i < 2)
+		args[i] = NULL;
 	free(bufcpy);
 	return (args);
 }
