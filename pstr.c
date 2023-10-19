@@ -1,8 +1,9 @@
 #include "monty.h"
 /**
- * pchar - prints the char at the top of stack
+ * pstr - prints the char at the top of stack
  * @stack: top of stack
  * @line_number: the line number
+ *
  */
 void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
