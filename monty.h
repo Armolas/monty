@@ -44,4 +44,5 @@ void pint(stack_t **stack, unsigned int line_number);
 void free_args(char **);
 void pop(stack_t **stack, unsigned int line_number);
 void free_list(stack_t **);
+int are_digits(char *str);
 #endif

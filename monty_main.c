@@ -34,8 +34,7 @@ int main(int argc, char **argv)
 	while (ui != -1)
 	{
 		cmd = get_cmd(str, " \n");
-		if (cmd[1])
-			arg = cmd[1];
+		arg = cmd[1];
 		f = get_func(cmd[0]);
 		if (!f)
 		{
@@ -49,6 +48,7 @@ int main(int argc, char **argv)
 		free_args(cmd);
 		ln = getline(&str, &nb, stream);
 		ui = ln;
+		line++;
 	}
 	free_list(&top);
 	free(str);

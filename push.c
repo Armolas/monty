@@ -10,13 +10,18 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (!arg)
 	{
-		dprintf(2, "L%d: usage: push integer", line_number);
+		dprintf(2, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (are_digits(arg) == 1)
+	{
+		dprintf(2, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	new->prev = NULL;
