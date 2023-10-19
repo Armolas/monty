@@ -58,7 +58,7 @@ void check_func(void (*f)(stack_t **, unsigned int), unsigned int line,
 void (*get_func(char *cmd))(stack_t **, unsigned int);
 void check_argc(int arg_count);
 void check_stream(FILE *stream, char *monty);
-void rotl(stack_t **stack, unsigned int line_number);
+
 char **get_cmd(char *, char *);
 int are_digits(char *str);
 void pstr(stack_t **stack, unsigned int line_number);
@@ -74,6 +74,7 @@ void div_2(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
 
 void free_list(stack_t **);
 void free_args(char **);

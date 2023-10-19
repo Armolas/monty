@@ -8,13 +8,13 @@ void (*get_func(char *cmd))(stack_t **, unsigned int)
 {
 	instruction_t ops[] = {
 		{"push", push},
-		{"pall", pall},
+		{"pall", pall}, {"rotr", rotr},
 		{"pint", pint}, {"pchar", pchar},
 		{"pop", pop}, {"mod", mod},
 		{"swap", swap}, {"mul", mul},
 		{"add", add}, {"div", div_2},
 		{"nop", nop}, {"sub",  sub},
-		{"pstr", pstr}, {"rotl", rotl},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	int i = 0;
