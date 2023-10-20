@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * get_func - gets the function
  * @cmd: command
@@ -7,7 +8,7 @@
 void (*get_func(char *cmd))(stack_t **, unsigned int)
 {
 	instruction_t ops[] = {
-		{"push", push},
+		{"push", push}, {"queue", queue},
 		{"pall", pall}, {"rotr", rotr},
 		{"pint", pint}, {"pchar", pchar},
 		{"pop", pop}, {"mod", mod},
@@ -15,10 +16,16 @@ void (*get_func(char *cmd))(stack_t **, unsigned int)
 		{"add", add}, {"div", div_2},
 		{"nop", nop}, {"sub",  sub},
 		{"pstr", pstr}, {"rotl", rotl},
-		{NULL, NULL}
+		{"stack", stack}, {NULL, NULL}
 	};
 	int i = 0;
 
+
+	if (myglob.mode == 1)
+	{
+		ops[0].opcode = "push";
+		ops[0].f = enqueue;
+	}
 	while (ops[i].opcode)
 	{
 		if (strcmp(cmd, ops[i].opcode) == 0)

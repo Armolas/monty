@@ -1,6 +1,5 @@
 #include "monty.h"
 
-char *arg = NULL;
 /**
  * main - entry point
  * @argc: number of argument
@@ -37,7 +36,7 @@ int main(int argc, char **argv)
 			continue;
 		}
 		cmd = get_cmd(str, " \n ");
-		arg = cmd[1];
+		myglob.arg = cmd[1];
 		f = get_func(cmd[0]);
 		check_func(f, line, cmd, str, stream, top);
 		f(&top, line);

@@ -9,9 +9,19 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
-
-extern char *arg;
-
+/**
+ * struct glob - struct to keep global variables
+ * @arg: command argument
+ * @mode: program mode 0 for stack 1 for queue
+ *
+ * Description: global variable struct
+ */
+struct glob
+{
+	char *arg;
+	int mode;
+};
+struct glob myglob;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -81,4 +91,7 @@ void free_list(stack_t **);
 void free_args(char **);
 int is_empty(char *);
 
+void enqueue(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
 #endif

@@ -1,13 +1,12 @@
 #include "monty.h"
-
 /**
- * push - pushes to the top of the stack
- * @stack: top of the stack
- * @line_number: line number of code
+ * enqueue - adds element to end of the list
+ * @stack: top of the node
+ * @line_number: line number
  */
-void push(stack_t **stack, unsigned int line_number)
+void enqueue(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
+	stack_t *new, *temp = *stack;
 
 	if (!myglob.arg)
 	{
@@ -25,15 +24,16 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new->prev = NULL;
+	new->next = NULL;
 	new->n = atoi(myglob.arg);
 	if (!*stack)
 	{
-		new->next = NULL;
+		new->prev = NULL;
 		*stack = new;
 		return;
 	}
-	(*stack)->prev = new;
-	new->next = *stack;
-	*stack = new;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
+	new->prev = temp;
 }
