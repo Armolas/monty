@@ -16,11 +16,11 @@ void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	}
 	while (temp)
 	{
-		if (temp->n < 1 || temp->n > 127)
-		{
+		if (temp->n < 0 || temp->n > 127)
 			break;
-		}
 		write(1, &temp->n, 1);
+		if (temp->n == 0)
+			break;
 		temp = temp->next;
 	}
 	printf("\n");
